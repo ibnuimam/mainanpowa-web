@@ -24,3 +24,29 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.bg-accent {
+  background-color: oklch(58.6% 0.253 17.585);
+  background: radial-gradient(
+    ellipse closest-side at center,
+    oklch(58.8% 0.158 241.966) 0%,
+    oklch(90.1% 0.058 230.902) 100%
+  );
+}
+
+.bg-accent-secondary {
+  background-color: oklch(58.6% 0.253 17.585);
+  background-image: radial-gradient(
+    ellipse farthest-corner at center,
+    oklch(58.8% 0.158 241.966) 0%,
+    oklch(90.1% 0.058 230.902) 55%
+  );
+}
+
+.glassmorphism {
+  @apply bg-white/10 border border-white/20 backdrop-blur-lg transition-all duration-300 shadow-md;
+}
+
+.glassmorphism-hover {
+  @apply hover:bg-white/20 hover:border-white/30;
+}
