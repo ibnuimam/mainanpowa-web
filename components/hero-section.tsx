@@ -3,7 +3,7 @@ import {
   IconBrandLinkedin,
   IconMail,
   IconBrandWhatsapp,
-} from "@tabler/icons-react";
+} from '@tabler/icons-react';
 
 const HeroSection = () => {
   return (
@@ -38,7 +38,7 @@ const HeroSection = () => {
           <IconBrandWhatsapp className="size-6" />
         </button>
         <button className="px-6 py-2.5 rounded-full glassmorphism glassmorphism-hover">
-          <span>Explore more</span>
+          <span className="link-hover">Explore more</span>
         </button>
       </div>
     </section>
