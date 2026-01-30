@@ -12,7 +12,7 @@ export function RadarPulse({ center }: RadarPulseProps) {
         center={center}
         radius={7000}
         pathOptions={{
-          fillColor: '#34d399',
+          fillColor: 'oklch(78.9% 0.154 211.53)',
           fillOpacity: 0.25,
           color: 'transparent',
         }}
@@ -24,7 +24,7 @@ export function RadarPulse({ center }: RadarPulseProps) {
         radius={9000}
         pathOptions={{
           className: 'radar-pulse radar-pulse-1',
-          fillColor: '#34d399',
+          fillColor: 'oklch(78.9% 0.154 211.53)',
           fillOpacity: 0.2,
           color: 'transparent',
         }}
@@ -36,7 +36,7 @@ export function RadarPulse({ center }: RadarPulseProps) {
         radius={11000}
         pathOptions={{
           className: 'radar-pulse radar-pulse-2',
-          fillColor: '#34d399',
+          fillColor: 'oklch(78.9% 0.154 211.53)',
           fillOpacity: 0.15,
           color: 'transparent',
         }}

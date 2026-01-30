@@ -80,14 +80,12 @@ const techStacks: TechStack[] = [
 export default function TechStackCard() {
   return (
     <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border p-6 glassmorphism">
-      {/* Header */}
-      <Badge
-        icon={<IconStack2Filled className="h-5 w-5 text-white" />}
-        title="Tech stack"
-        className="w-fit mb-4"
-      />
-
-      {/* Marquee */}
+      <div className="mb-4">
+        <Badge
+          icon={<IconStack2Filled className="h-5 w-5 text-white" />}
+          title="Tech stack"
+        />
+      </div>
       <div className="relative overflow-hidden">
         {/* Fade mask */}
         <div className="pointer-events-none absolute inset-0 z-10" />

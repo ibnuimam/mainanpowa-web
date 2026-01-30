@@ -46,7 +46,6 @@ export default function LocationMap({ className }: { className?: string }) {
         <Badge
           icon={<IconLocationFilled className="h-5 w-5 text-white" />}
           title="Location"
-          className="w-fit"
         />
       </div>
 
@@ -71,14 +70,14 @@ export default function LocationMap({ className }: { className?: string }) {
       {/* Zoom controls */}
       <button
         onClick={zoomOut}
-        className="absolute bottom-6 left-6 z-1000 flex size-12 items-center justify-center rounded-full bg-black/80 text-xl text-white"
+        className="absolute bottom-6 left-6 z-1000 flex size-12 items-center justify-center rounded-full bg-black/80 text-xl text-white shadow-sm hover:text-cyan-400"
       >
         <IconMinus />
       </button>
 
       <button
         onClick={zoomIn}
-        className="absolute bottom-6 right-6 z-1000 flex size-12 items-center justify-center rounded-full bg-black/80 text-xl text-white"
+        className="absolute bottom-6 right-6 z-1000 flex size-12 items-center justify-center rounded-full bg-black/80 text-xl text-white shadow-sm hover:text-cyan-400"
       >
         <IconPlus />
       </button>

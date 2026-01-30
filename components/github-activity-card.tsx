@@ -25,7 +25,6 @@ export default async function GithubActivityCard({
         <Badge
           icon={<IconBrandGithubFilled className="h-5 w-5 text-white" />}
           title="Github activity"
-          className="w-fit"
         />
 
         <p className="text-sm text-white/80">
@@ -66,8 +65,8 @@ export default async function GithubActivityCard({
 
 function getColor(count: number) {
   if (count === 0) return 'bg-[#1f2937]';
-  if (count < 5) return 'bg-emerald-900';
-  if (count < 10) return 'bg-emerald-700';
-  if (count < 20) return 'bg-emerald-500';
-  return 'bg-emerald-300';
+  if (count < 5) return 'bg-cyan-900';
+  if (count < 10) return 'bg-cyan-700';
+  if (count < 20) return 'bg-cyan-500';
+  return 'bg-cyan-300';
 }

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import 'leaflet/dist/leaflet.css';
 import NavigationBottom from '@/components/navigation-bottom';
+import Footer from '@/components/footer';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,9 +30,18 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('/img/bg.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'bottom right',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
+        }}
       >
         {children}
         <NavigationBottom />
+        <Footer />
       </body>
     </html>
   );

@@ -1,5 +1,8 @@
 import BentoSection from '@/components/bento-section';
+import BlogSection from '@/components/blog-section';
 import HeroSection from '@/components/hero-section';
+import HobbySection from '@/components/hobby-section';
+import ProjectSection from '@/components/project-section';
 import BackgroundComp from '@/components/ui/background';
 import { cn } from '@/libs/utils';
 
@@ -19,19 +22,21 @@ export default function Home() {
             '-top-50 left-60'
           )}
         />
-        <BackgroundComp
-          className={cn('h-97 w-439 rotate-40 opacity-80', '-left-50 -top-110')}
-        />
-        <BackgroundComp
-          className={cn(
-            'h-123 w-298 rotate-[-32deg] opacity-75',
-            '-top-70 left-240'
-          )}
-        />
       </div>
       <main className="w-full max-w-6xl px-12 pb-16 tracking-wide transition-all max-sm:px-4">
         <HeroSection />
-        <BentoSection />
+        <div id="bento">
+          <BentoSection />
+        </div>
+        <div id="projects">
+          <ProjectSection />
+        </div>
+        <div id="blog">
+          <BlogSection />
+        </div>
+        <div id="hobbies">
+          <HobbySection />
+        </div>
       </main>
     </div>
   );
