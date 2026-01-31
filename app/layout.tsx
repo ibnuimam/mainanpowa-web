@@ -15,10 +15,37 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+const defaultDescription =
+  "Hi! I'm Ibnu Imam, a software engineer specializing in web development.";
+
 export const metadata: Metadata = {
-  title: 'Ibnu Imam',
-  description:
-    "Hi! I'm Ibnu Imam, a software engineer specializing in web development.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'Ibnu Imam',
+    template: '%s | Ibnu Imam',
+  },
+  description: defaultDescription,
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    siteName: 'Ibnu Imam',
+    title: 'Ibnu Imam',
+    description: defaultDescription,
+    images: [{ url: '/img/bg.jpg', alt: 'Ibnu Imam' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ibnu Imam',
+    description: defaultDescription,
+    images: ['/img/bg.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

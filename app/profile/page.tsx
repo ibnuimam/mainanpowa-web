@@ -3,6 +3,27 @@ import BackgroundComp from '@/components/ui/background';
 import Badge from '@/components/ui/badge';
 import { cn } from '@/libs/utils';
 import { IconUserFilled } from '@tabler/icons-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Profile',
+  description:
+    'About Ibnu Imam — experience, education, skills, and contact details.',
+  alternates: {
+    canonical: '/profile',
+  },
+  openGraph: {
+    title: 'Profile',
+    description:
+      'About Ibnu Imam — experience, education, skills, and contact details.',
+    url: '/profile',
+  },
+  twitter: {
+    title: 'Profile',
+    description:
+      'About Ibnu Imam — experience, education, skills, and contact details.',
+  },
+};
 
 export default function Profile() {
   return (

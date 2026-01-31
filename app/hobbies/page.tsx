@@ -1,6 +1,27 @@
 import HobbySection from '@/components/hobby-section';
 import BackgroundComp from '@/components/ui/background';
 import { cn } from '@/libs/utils';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Hobbies',
+  description:
+    'Interests and hobbies outside of work — the things that inspire me.',
+  alternates: {
+    canonical: '/hobbies',
+  },
+  openGraph: {
+    title: 'Hobbies',
+    description:
+      'Interests and hobbies outside of work — the things that inspire me.',
+    url: '/hobbies',
+  },
+  twitter: {
+    title: 'Hobbies',
+    description:
+      'Interests and hobbies outside of work — the things that inspire me.',
+  },
+};
 
 export default function Hobbies() {
   return (

@@ -1,6 +1,27 @@
 import ProjectSection from '@/components/project-section';
 import BackgroundComp from '@/components/ui/background';
 import { cn } from '@/libs/utils';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Projects',
+  description:
+    'Selected projects by Ibnu Imam — case studies, builds, and milestones.',
+  alternates: {
+    canonical: '/projects',
+  },
+  openGraph: {
+    title: 'Projects',
+    description:
+      'Selected projects by Ibnu Imam — case studies, builds, and milestones.',
+    url: '/projects',
+  },
+  twitter: {
+    title: 'Projects',
+    description:
+      'Selected projects by Ibnu Imam — case studies, builds, and milestones.',
+  },
+};
 
 export default function Projects() {
   return (

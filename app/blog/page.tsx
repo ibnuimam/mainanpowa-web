@@ -1,6 +1,27 @@
 import BlogSection from '@/components/blog-section';
 import BackgroundComp from '@/components/ui/background';
 import { cn } from '@/libs/utils';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description:
+    'Writing on web development, engineering lessons, and project insights.',
+  alternates: {
+    canonical: '/blog',
+  },
+  openGraph: {
+    title: 'Blog',
+    description:
+      'Writing on web development, engineering lessons, and project insights.',
+    url: '/blog',
+  },
+  twitter: {
+    title: 'Blog',
+    description:
+      'Writing on web development, engineering lessons, and project insights.',
+  },
+};
 
 export default function Blog() {
   return (

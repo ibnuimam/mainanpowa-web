@@ -4,9 +4,48 @@ import { fetchBlog } from '@/services/blog.serv';
 import { IconArrowLeft } from '@tabler/icons-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const blog = await fetchBlog(slug);
+
+  if (!blog) {
+    return {
+      title: 'Blog Not Found',
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const description = blog.shortDescription ?? blog.description ?? '';
+  const canonical = `/blog/${blog.slug}`;
+
+  return {
+    title: blog.title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      title: blog.title,
+      description,
+      type: 'article',
+      url: canonical,
+      images: blog.image ? [{ url: blog.image, alt: blog.title }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: blog.title,
+      description,
+      images: blog.image ? [blog.image] : undefined,
+    },
+  };
+}
 
 export default async function BlogDetail({ params }: any) {
   const { slug } = await params;

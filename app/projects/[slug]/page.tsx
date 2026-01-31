@@ -4,9 +4,50 @@ import { fetchProject } from '@/services/project.serv';
 import { IconArrowLeft } from '@tabler/icons-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = await fetchProject(slug);
+
+  if (!project) {
+    return {
+      title: 'Project Not Found',
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const description = project.shortDescription ?? project.description ?? '';
+  const canonical = `/projects/${project.slug}`;
+
+  return {
+    title: project.title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      title: project.title,
+      description,
+      type: 'article',
+      url: canonical,
+      images: project.image
+        ? [{ url: project.image, alt: project.title }]
+        : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: project.title,
+      description,
+      images: project.image ? [project.image] : undefined,
+    },
+  };
+}
 
 export default async function ProjectDetail({ params }: any) {
   const { slug } = await params;

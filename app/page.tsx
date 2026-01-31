@@ -5,6 +5,27 @@ import HobbySection from '@/components/hobby-section';
 import ProjectSection from '@/components/project-section';
 import BackgroundComp from '@/components/ui/background';
 import { cn } from '@/libs/utils';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Home',
+  description:
+    'Portfolio of Ibnu Imam — software engineer focused on building modern web experiences.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Home',
+    description:
+      'Portfolio of Ibnu Imam — software engineer focused on building modern web experiences.',
+    url: '/',
+  },
+  twitter: {
+    title: 'Home',
+    description:
+      'Portfolio of Ibnu Imam — software engineer focused on building modern web experiences.',
+  },
+};
 
 export default function Home() {
   return (
