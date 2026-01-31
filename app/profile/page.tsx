@@ -1,8 +1,8 @@
+import ProfileCard from '@/components/profile-card';
 import BackgroundComp from '@/components/ui/background';
 import Badge from '@/components/ui/badge';
 import { cn } from '@/libs/utils';
 import { IconUserFilled } from '@tabler/icons-react';
-import Image from 'next/image';
 
 export default function Profile() {
   return (
@@ -43,36 +43,159 @@ export default function Profile() {
                 web applications that feel seamless and intuitive.
               </p>
             </div>
-            <div className="w-full">
-              <div className="grid grid-cols-6">
+            <div className="w-full flex flex-col gap-10">
+              <div className="grid gap-4 grid-cols-1 md:grid-cols-6">
+                <div>
+                  <p className="font-bold text-lg">Experience</p>
+                </div>
+                <div className="md:col-span-5 flex flex-col gap-4">
+                  <ProfileCard
+                    image="/img/sunterra.jpeg"
+                    imageClassName="bg-[#f78c22]"
+                    title="Full Stack Engineer"
+                    shortDescription="PT Energi Indonesia Berkarya (SUN Group) - Jakarta"
+                    periode="Jan 2025 - Present"
+                    description={
+                      <div className="mt-4 ml-4">
+                        <ul className="list-disc text-zinc-300 text-sm">
+                          <li>
+                            Developed and maintained web applications using
+                            Typescript, Nextjs, Node.js, Go, PHP, Postgree,
+                            MySql and MongoDB.
+                          </li>
+                          <li>
+                            Collaborated with cross-functional teams to design
+                            and implement new features based on user feedback.
+                          </li>
+                          <li>
+                            Optimized application performance and bug fixes.
+                          </li>
+                        </ul>
+                      </div>
+                    }
+                  />
+                  <ProfileCard
+                    image="/img/sunterra.jpeg"
+                    imageClassName="bg-[#f78c22]"
+                    title="Lead Software Engineer"
+                    shortDescription="PT Energi Indonesia Berkarya (SUN Group) - Jakarta"
+                    periode="May 2022 - Jan 2025"
+                    description={
+                      <div className="mt-4 ml-4">
+                        <ul className="list-disc text-zinc-300 text-sm">
+                          <li>
+                            Led a team of developers to design and implement
+                            scalable web applications using modern technologies
+                            such as React, Node.js, and Postgree.
+                          </li>
+                          <li>
+                            Architected and developed RESTful APIs to support
+                            front-end functionality and improve data retrieval
+                            efficiency.
+                          </li>
+                          <li>
+                            Mentored junior developers and conducted code
+                            reviews to ensure adherence to best practices and
+                            coding standards.
+                          </li>
+                        </ul>
+                      </div>
+                    }
+                  />
+                  <ProfileCard
+                    image="/img/tanihub.jpeg"
+                    imageClassName="bg-[#22ab97]"
+                    title="Technical Lead"
+                    shortDescription="PT Tani Group Indonesia - Jakarta"
+                    periode="Feb 2021 - May 2022"
+                    description={
+                      <div className="mt-4 ml-2">
+                        <p className="text-zinc-300 text-sm">
+                          As Technical Lead at PT Tani Group Indonesia, I led a
+                          customer‑facing squad, architected and developed
+                          services for customer‑facing products, and ensured
+                          high delivery quality through mentoring, code reviews,
+                          and technical guidance.
+                        </p>
+                      </div>
+                    }
+                  />
+                  <ProfileCard
+                    image="/img/kalbe.jpg"
+                    imageClassName="bg-white"
+                    title="Senior Frontend Engineer"
+                    shortDescription="PT Karsa Lintas Buana (Kalbe E-Health) - Tangerang"
+                    periode="Oct 2019 - Feb 2021"
+                    description={
+                      <div className="mt-4 ml-2">
+                        <p className="text-zinc-300 text-sm">
+                          As a Senior Frontend Engineer, I build high‑quality,
+                          user‑focused web applications, translating product
+                          goals into responsive, accessible, and performant
+                          interfaces. I collaborate across design and backend
+                          teams, drive front‑end architecture decisions, and
+                          improve code quality through best practices, reusable
+                          components, and thoughtful reviews. I also mentor
+                          engineers and help teams ship reliable features with a
+                          strong focus on user experience.
+                        </p>
+                      </div>
+                    }
+                  />
+                </div>
+              </div>
+
+              <div className="grid gap-4 grid-cols-1 md:grid-cols-6">
                 <div>
                   <p className="font-bold text-lg">Education</p>
                 </div>
-                <div className="col-span-5">
-                  <div className="glassmorphism p-4 rounded-2xl mb-4 flex gap-4 items-center justify-between">
-                    <div className="flex gap-4 items-center">
-                      <div className="p-1 bg-white rounded-xl">
-                        <Image
-                          src="/img/itb.png"
-                          alt="ITB"
-                          width={48}
-                          height={48}
-                        />
-                      </div>
-                      <div>
-                        <p className="font-bold text-lg text-white">
-                          Bachelor of Applied Science
-                        </p>
-                        <p className="text-white">
-                          Institut Teknologi - Bandung
-                        </p>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-zinc-400 text-sm">
-                        - From 2012 to 2014
-                      </p>
-                    </div>
+                <div className="md:col-span-5 ">
+                  <ProfileCard
+                    image="/img/itb.png"
+                    imageClassName="bg-white"
+                    title="Bachelor of Applied Science"
+                    shortDescription="Institut Teknologi - Bandung"
+                    periode="- From 2012 to 2014"
+                  />
+                </div>
+              </div>
+
+              <div className="grid gap-4 grid-cols-1 md:grid-cols-6">
+                <div>
+                  <p className="font-bold text-lg">Skills</p>
+                </div>
+                <div className="md:col-span-5 flex flex-wrap gap-3">
+                  <Badge title="JavaScript" />
+                  <Badge title="TypeScript" />
+                  <Badge title="React" />
+                  <Badge title="React Native" />
+                  <Badge title="Next.js" />
+                  <Badge title="Node.js" />
+                  <Badge title="Go" />
+                  <Badge title="PHP" />
+                  <Badge title="MySQL" />
+                  <Badge title="PostgreSQL" />
+                  <Badge title="MongoDB" />
+                  <Badge title="Docker" />
+                  <Badge title="Kubernetes" />
+                  <Badge title="AWS" />
+                  <Badge title="Git" />
+                  <Badge title="Leadership" />
+                </div>
+              </div>
+
+              <div className="grid gap-4 grid-cols-1 md:grid-cols-6">
+                <div>
+                  <p className="font-bold text-lg">Contact</p>
+                </div>
+                <div className="md:col-span-5">
+                  <div className="flex flex-col gap-2">
+                    <p className="text-zinc-300 text-sm">
+                      Email: me@ibnuimam.com
+                    </p>
+                    <p className="text-zinc-300 text-sm">
+                      Phone: +62 852 2233 8644
+                    </p>
                   </div>
                 </div>
               </div>

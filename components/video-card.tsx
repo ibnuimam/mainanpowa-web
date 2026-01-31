@@ -25,7 +25,7 @@ export default function VideoCard({ image, title, onClick }: VideoCardProps) {
           <IconPlayerPlayFilled className="size-14 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white group-hover:text-cyan-400" />
         </div>
         <div className="space-y-3">
-          <h3 className="text-2xl font-semibold leading-snug text-white">
+          <h3 className="text-xl font-semibold leading-snug text-white">
             {title}
           </h3>
         </div>

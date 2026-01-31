@@ -2,12 +2,21 @@ import { IconBriefcaseFilled } from '@tabler/icons-react';
 import ProjectCard from './project-card';
 import Badge from './ui/badge';
 import MoreButton from './ui/more-botton';
+import { fetchProjects, ProjectItemType } from '@/services/project.serv';
 
 type ProjectSectionProps = {
   isPage?: boolean;
 };
 
-const ProjectSection = ({ isPage = false }: ProjectSectionProps) => {
+const ProjectSection = async ({ isPage = false }: ProjectSectionProps) => {
+  let projects: ProjectItemType[] = [];
+  const fetchedProjects = await fetchProjects({
+    page: 1,
+    limit: 3,
+    sort: 'year:desc',
+  });
+  projects = fetchedProjects.data;
+
   return (
     <section className="flex flex-col gap-8 pb-32 sm:justify-center">
       <div className="flex justify-between items-center">
@@ -40,9 +49,9 @@ const ProjectSection = ({ isPage = false }: ProjectSectionProps) => {
         )}
       </div>
       <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {[1, 2, 3].map((_, index) => (
-          <div key={index}>
-            <ProjectCard />
+        {projects.map((project) => (
+          <div key={project.slug}>
+            <ProjectCard {...project} />
           </div>
         ))}
       </div>

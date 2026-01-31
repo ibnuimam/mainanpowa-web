@@ -1,22 +1,15 @@
+import { ProjectItemType } from '@/services/project.serv';
 import { IconArrowRight } from '@tabler/icons-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-type ProjectCardProps = {
-  image?: string;
-  title?: string;
-  description?: string;
-  year?: string;
-  href?: string;
-};
-
 export default function ProjectCard({
-  image = 'https://images.pexels.com/photos/5052877/pexels-photo-5052877.jpeg',
-  title = 'Bookmarked Android: A Simple Viewer for My Bookmarked Content',
-  description = 'Built with Jetpack Compose, it aims to offer an improved reading experience on my laggy phone.',
-  year = '2024',
-  href = '/projects/bookmarked-android',
-}: ProjectCardProps) {
+  image,
+  title,
+  shortDescription,
+  year,
+  href,
+}: ProjectItemType) {
   return (
     <Link
       href={href}
@@ -28,6 +21,7 @@ export default function ProjectCard({
             src={image}
             alt={title}
             fill
+            unoptimized
             className="object-cover aspect-[2] transition-all duration-800 group-hover:scale-105 md:aspect-[1.5]"
             sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
           />
@@ -40,7 +34,7 @@ export default function ProjectCard({
             {title}
           </h3>
           <p className="text-base leading-relaxed text-slate-300">
-            {description}
+            {shortDescription}
           </p>
         </div>
       </div>

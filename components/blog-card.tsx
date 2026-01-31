@@ -1,22 +1,16 @@
+import { BlogItemType } from '@/services/blog.serv';
 import { IconArrowRight } from '@tabler/icons-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-type BlogCardProps = {
-  image?: string;
-  title?: string;
-  description?: string;
-  date?: string;
-  href?: string;
-};
-
 export default function BlogCard({
-  image = 'https://images.pexels.com/photos/5052877/pexels-photo-5052877.jpeg',
-  title = 'Bookmarked Android: A Simple Viewer for My Bookmarked Content',
-  description = 'Built with Jetpack Compose, it aims to offer an improved reading experience on my laggy phone.',
-  date = 'January 3, 2024',
-  href = '/projects/bookmarked-android',
-}: BlogCardProps) {
+  image,
+  title,
+  shortDescription,
+  date,
+  href,
+  tags,
+}: BlogItemType) {
   return (
     <Link
       href={href}
@@ -26,9 +20,10 @@ export default function BlogCard({
         <Image
           src={image}
           alt={title}
+          fill
+          unoptimized
           sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
           className="object-cover aspect-[2] transition-all duration-800 group-hover:scale-105 md:aspect-[1.5]"
-          fill
         />
       </div>
 
@@ -39,7 +34,7 @@ export default function BlogCard({
             {title}
           </p>
           <p className="mt-2 line-clamp-2 text-zinc-400 max-md:text-sm">
-            {description}
+            {shortDescription}
           </p>
         </div>
 
@@ -51,12 +46,12 @@ export default function BlogCard({
             </span>
           </div>
           <ul className="flex flex-wrap gap-2">
-            {['JS', 'React'].map((item) => (
+            {tags?.map((item) => (
               <li
-                key={item}
+                key={item.id}
                 className="font-mono text-white text-xs tracking-tight glassmorphism px-2 rounded-full flex items-center justify-center"
               >
-                {item}
+                {item.title}
               </li>
             ))}
           </ul>

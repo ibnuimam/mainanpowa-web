@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 type PillBadgeProps = {
-  icon: ReactNode;
+  icon?: ReactNode;
   title: string;
   accent?: boolean;
 };

@@ -2,12 +2,21 @@ import { IconMessageFilled } from '@tabler/icons-react';
 import Badge from './ui/badge';
 import MoreButton from './ui/more-botton';
 import BlogCard from './blog-card';
+import { BlogItemType, fetchBlogs } from '@/services/blog.serv';
 
 type BlogSectionProps = {
   isPage?: boolean;
 };
 
-const BlogSection = ({ isPage = false }: BlogSectionProps) => {
+const BlogSection = async ({ isPage = false }: BlogSectionProps) => {
+  let blogs: BlogItemType[] = [];
+  const fetchedBlogs = await fetchBlogs({
+    page: 1,
+    limit: 3,
+    sort: 'createdAt:desc',
+  });
+  blogs = fetchedBlogs.data;
+
   return (
     <section className="flex flex-col gap-8 pb-32 sm:justify-center">
       <div className="flex justify-between items-center">
@@ -40,9 +49,9 @@ const BlogSection = ({ isPage = false }: BlogSectionProps) => {
         )}
       </div>
       <div className="mt-12 flex flex-col gap-8">
-        {[1, 2, 3].map((_, index) => (
-          <div key={index}>
-            <BlogCard />
+        {blogs.map((blog) => (
+          <div key={blog.slug}>
+            <BlogCard {...blog} />
           </div>
         ))}
       </div>
