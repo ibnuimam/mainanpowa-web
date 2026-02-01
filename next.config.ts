@@ -25,6 +25,11 @@ const nextConfig: NextConfig = {
         port: '1337',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'reliable-desire-109eeaa494.strapiapp.com',
+        pathname: '/**',
+      },
     ],
   },
 };

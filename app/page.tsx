@@ -8,20 +8,20 @@ import { cn } from '@/libs/utils';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'Ibnu Imam',
   description:
     'Portfolio of Ibnu Imam — software engineer focused on building modern web experiences.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Home',
+    title: 'Ibnu Imam',
     description:
       'Portfolio of Ibnu Imam — software engineer focused on building modern web experiences.',
     url: '/',
   },
   twitter: {
-    title: 'Home',
+    title: 'Ibnu Imam',
     description:
       'Portfolio of Ibnu Imam — software engineer focused on building modern web experiences.',
   },

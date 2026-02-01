@@ -61,10 +61,15 @@ const FOOTER_CONTENTS: FooterContent[] = [
         href: 'https://github.com/jestsee/jestsee.com',
         inNewTab: true,
       },
+      {
+        text: 'API code',
+        href: 'https://github.com/ibnuimam/mainanpowa-admin',
+        inNewTab: true,
+      },
     ],
   },
   {
-    title: 'Elsewhere',
+    title: 'Part of',
     links: [
       {
         text: 'Sahabat Finansial',
@@ -73,7 +78,7 @@ const FOOTER_CONTENTS: FooterContent[] = [
         withIcon: true,
       },
       {
-        text: 'Kreasi Awan Nusantara',
+        text: 'Kawan',
         href: 'https://hq.gotfloop.com',
         inNewTab: true,
         withIcon: true,

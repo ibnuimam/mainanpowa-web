@@ -9,9 +9,13 @@ import {
   IconUserFilled,
 } from '@tabler/icons-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const NavigationBottom = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const pathname = usePathname();
+
+  const isActivePath = (href: string) => pathname === href;
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -51,30 +55,45 @@ const NavigationBottom = () => {
             <span className="pointer-events-none absolute bottom-14 left-1/2 transform -translate-x-1/2 rounded-full px-3 py-1 text-xs opacity-0 translate-y-1 transition-all duration-200 ease-out group-hover:opacity-100 group-hover:translate-y-0 bg-zinc-900">
               Hi
             </span>
+            {isActivePath('/') ? (
+              <span className="absolute bottom-1 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-cyan-400" />
+            ) : null}
           </Link>
           <Link href="/projects" className="group relative px-2 py-3">
             <IconBriefcaseFilled className="text-white" />
             <span className="pointer-events-none absolute bottom-14 left-1/2 transform -translate-x-1/2 rounded-full px-3 py-1 text-xs opacity-0 translate-y-1 transition-all duration-200 ease-out group-hover:opacity-100 group-hover:translate-y-0 bg-zinc-900">
               Projects
             </span>
+            {isActivePath('/projects') ? (
+              <span className="absolute bottom-1 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-cyan-400" />
+            ) : null}
           </Link>
           <Link href="/blog" className="group relative px-2 py-3">
             <IconMessageFilled className="text-white" />
             <span className="pointer-events-none absolute bottom-14 left-1/2 transform -translate-x-1/2 rounded-full px-3 py-1 text-xs opacity-0 translate-y-1 transition-all duration-200 ease-out group-hover:opacity-100 group-hover:translate-y-0 bg-zinc-900">
               Blog
             </span>
+            {isActivePath('/blog') ? (
+              <span className="absolute bottom-1 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-cyan-400" />
+            ) : null}
           </Link>
           <Link href="/hobbies" className="group relative px-2 py-3">
             <IconCameraFilled className="text-white" />
             <span className="pointer-events-none absolute bottom-14 left-1/2 transform -translate-x-1/2 rounded-full px-3 py-1 text-xs opacity-0 translate-y-1 transition-all duration-200 ease-out group-hover:opacity-100 group-hover:translate-y-0 bg-zinc-900">
               Hobby
             </span>
+            {isActivePath('/hobbies') ? (
+              <span className="absolute bottom-1 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-cyan-400" />
+            ) : null}
           </Link>
           <Link href="/profile" className="group relative px-2 py-3">
             <IconUserFilled className="text-white" />
             <span className="pointer-events-none absolute bottom-14 left-1/2 transform -translate-x-1/2 rounded-full px-3 py-1 text-xs opacity-0 translate-y-1 transition-all duration-200 ease-out group-hover:opacity-100 group-hover:translate-y-0 bg-zinc-900">
               Profile
             </span>
+            {isActivePath('/profile') ? (
+              <span className="absolute bottom-1 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-cyan-400" />
+            ) : null}
           </Link>
         </div>
       </nav>

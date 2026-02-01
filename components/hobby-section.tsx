@@ -3,6 +3,7 @@ import Badge from './ui/badge';
 import MoreButton from './ui/more-botton';
 import { getVideos } from '@/services/youtube.serv';
 import YoutubeList from './youtube-list';
+import Link from 'next/link';
 
 type HobbySectionProps = {
   isPage?: boolean;
@@ -10,7 +11,7 @@ type HobbySectionProps = {
 
 const HobbySection = async ({ isPage = false }: HobbySectionProps) => {
   let videos: any[] = [];
-  videos = await getVideos(10);
+  videos = await getVideos(12);
 
   return (
     <section className="flex flex-col gap-8 pb-32 sm:justify-center">
@@ -44,8 +45,19 @@ const HobbySection = async ({ isPage = false }: HobbySectionProps) => {
         )}
       </div>
       <div className="mt-12">
-        <YoutubeList videos={videos} limit={4} />
+        <YoutubeList videos={videos} limit={isPage ? 12 : 4} />
       </div>
+      {isPage && (
+        <div className="mx-auto w-fit">
+          <Link
+            href="https://www.youtube.com/@mainanpowa"
+            target="_blank"
+            className="px-6 py-2.5 w-fit rounded-full glassmorphism glassmorphism-hover"
+          >
+            <span className="link-hover">Explore more in youtube</span>
+          </Link>
+        </div>
+      )}
     </section>
   );
 };
