@@ -106,7 +106,7 @@ export async function fetchBlog(slug: string) {
       title: removeScriptTags(n.title),
       shortDescription: removeScriptTags(n.short_description),
       description: removeScriptTags(n.description),
-      image: thumbnail(n.image),
+      image: thumbnail(n.image, '', true),
       href: `/blog/${n.slug}`,
       date: formateDateID(n.createdAt, 'EEEE, dd MMM yyyy'),
       tags: n.tags.map((tag: any) => ({

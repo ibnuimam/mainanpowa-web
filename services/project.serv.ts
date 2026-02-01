@@ -58,6 +58,7 @@ export async function fetchProjects({
       href: `/projects/${n.slug}`,
       year: n.year,
     }));
+
     return {
       data: formattedData,
       pagination: resJson.meta.pagination,
@@ -100,7 +101,7 @@ export async function fetchProject(slug: string) {
       title: removeScriptTags(n.title),
       shortDescription: removeScriptTags(n.short_description),
       description: removeScriptTags(n.description),
-      image: thumbnail(n.image),
+      image: thumbnail(n.image, '', true),
       href: `/projects/${n.slug}`,
       year: n.year,
     }));

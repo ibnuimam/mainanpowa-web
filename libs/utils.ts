@@ -12,11 +12,15 @@ export const removeHashtags = (title: string) => {
     .trim();
 };
 
-export const thumbnail = (image: any, defaultImage?: string) => {
-  if (image) {
-    return image?.formats?.medium
-      ? `${process.env.STRAPI_URL}${image?.formats?.medium.url}`
-      : `${process.env.STRAPI_URL}${image.url}`;
+export const thumbnail = (
+  image: any,
+  defaultImage?: string,
+  isLarge?: boolean
+) => {
+  if (image && isLarge) {
+    return image?.formats?.large ? image?.formats?.large.url : image.url;
+  } else if (image && !isLarge) {
+    return image?.formats?.medium ? image?.formats?.medium.url : image.url;
   } else {
     return defaultImage ? defaultImage : '/img/img-notfound.png';
   }
