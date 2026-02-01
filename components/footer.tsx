@@ -56,6 +56,11 @@ const FOOTER_CONTENTS: FooterContent[] = [
         href: 'https://github.com/ibnuimam/mainanpowa-web',
         inNewTab: true,
       },
+      {
+        text: 'Refrence code',
+        href: 'https://github.com/jestsee/jestsee.com',
+        inNewTab: true,
+      },
     ],
   },
   {
@@ -64,6 +69,12 @@ const FOOTER_CONTENTS: FooterContent[] = [
       {
         text: 'Sahabat Finansial',
         href: 'https://sahabatfinansial.com',
+        inNewTab: true,
+        withIcon: true,
+      },
+      {
+        text: 'Kreasi Awan Nusantara',
+        href: 'https://hq.gotfloop.com',
         inNewTab: true,
         withIcon: true,
       },
