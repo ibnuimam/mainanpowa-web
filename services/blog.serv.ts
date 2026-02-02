@@ -33,19 +33,18 @@ export async function fetchBlogs({
       'pagination[pageSize]': `${limit}`,
       sort: `${sort}`,
     });
-
-    const res = await fetch(
-      `${process.env.STRAPI_URL}/api/blogs?${query.toString()}`,
-      {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
-          'Content-Type': 'application/json',
-        },
-        next: { revalidate: 0, tags: ['blogs-cache', 'global-cache'] },
-      }
-    );
+    const url = `${process.env.STRAPI_URL}/api/blogs?${query.toString()}`;
+    const res = await fetch(url, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+      next: { revalidate: 0, tags: ['blogs-cache', 'global-cache'] },
+    });
     if (!res.ok) {
+      console.error('Failed to fetch blogs', res);
+      console.error('Url fetch', url);
       return {
         data: [],
         pagination: null,
@@ -85,19 +84,18 @@ export async function fetchBlog(slug: string) {
       'pagination[page]': '1',
       'pagination[pageSize]': '1',
     });
-
-    const res = await fetch(
-      `${process.env.STRAPI_URL}/api/blogs?${query.toString()}`,
-      {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
-          'Content-Type': 'application/json',
-        },
-        next: { revalidate: 120, tags: ['blog-cache', 'global-cache'] },
-      }
-    );
+    const url = `${process.env.STRAPI_URL}/api/blogs?${query.toString()}`;
+    const res = await fetch(url, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+      next: { revalidate: 120, tags: ['blog-cache', 'global-cache'] },
+    });
     if (!res.ok) {
+      console.error('Failed to fetch blog', res);
+      console.error('Url fetch', url);
       return null;
     }
     const resJson = await res.json();
