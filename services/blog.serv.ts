@@ -40,7 +40,7 @@ export async function fetchBlogs({
         Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
         'Content-Type': 'application/json',
       },
-      next: { revalidate: 0, tags: ['blogs-cache', 'global-cache'] },
+      next: { revalidate: 120, tags: ['blogs-cache', 'global-cache'] },
     });
     if (!res.ok) {
       console.error('Failed to fetch blogs', res);
@@ -91,7 +91,7 @@ export async function fetchBlog(slug: string) {
         Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
         'Content-Type': 'application/json',
       },
-      next: { revalidate: 120, tags: ['blog-cache', 'global-cache'] },
+      next: { revalidate: 240, tags: ['blog-cache', 'global-cache'] },
     });
     if (!res.ok) {
       console.error('Failed to fetch blog', res);

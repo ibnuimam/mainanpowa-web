@@ -4,7 +4,7 @@ import { removeHashtags } from '@/libs/utils';
 async function fetchYoutube(limit: number) {
   const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.YOUTUBE_CHANNEL_ID}&maxResults=${limit}&type=video&videoDuration=short&order=date&key=${process.env.YOUTUBE_API_KEY}`;
   const res = await fetch(url, {
-    next: { revalidate: 10, tags: ['videoes-cache', 'global-cache'] },
+    next: { revalidate: 360, tags: ['videoes-cache', 'global-cache'] },
   });
 
   if (!res.ok) {
@@ -20,7 +20,7 @@ async function fetchYoutube(limit: number) {
 async function fetchYoutubeDetail(videoId: string) {
   const url = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${videoId}&key=${process.env.YOUTUBE_API_KEY}`;
   const res = await fetch(url, {
-    next: { revalidate: 10, tags: ['video-cache', 'global-cache'] },
+    next: { revalidate: 680, tags: ['video-cache', 'global-cache'] },
   });
 
   if (!res.ok) {
@@ -33,15 +33,16 @@ async function fetchYoutubeDetail(videoId: string) {
 }
 
 async function processItems(items: any[]) {
-  const newItems = [];
-  for (const item of items) {
-    const detail = await fetchYoutubeDetail(item.id);
-    newItems.push({
-      ...item,
-      duration: parseDuration(detail),
-    });
-  }
-  return newItems;
+  const detailList = await Promise.all(
+    items.map(async (item) => {
+      const detail = await fetchYoutubeDetail(item.id);
+      return {
+        ...item,
+        duration: parseDuration(detail),
+      };
+    })
+  );
+  return detailList;
 }
 
 export async function getVideos(limit = 4) {

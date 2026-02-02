@@ -38,7 +38,7 @@ export async function fetchProjects({
         Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
         'Content-Type': 'application/json',
       },
-      next: { revalidate: 0, tags: ['blogs-cache', 'global-cache'] },
+      next: { revalidate: 120, tags: ['blogs-cache', 'global-cache'] },
     });
     if (!res.ok) {
       console.error('Failed to fetch projects', res);
@@ -86,7 +86,7 @@ export async function fetchProject(slug: string) {
         Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
         'Content-Type': 'application/json',
       },
-      next: { revalidate: 120, tags: ['project-cache', 'global-cache'] },
+      next: { revalidate: 240, tags: ['project-cache', 'global-cache'] },
     });
     if (!res.ok) {
       console.error('Failed to fetch project', res);
