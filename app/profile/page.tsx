@@ -2,6 +2,7 @@ import ProfileCard from '@/components/profile-card';
 import BackgroundComp from '@/components/ui/background';
 import Badge from '@/components/ui/badge';
 import { cn } from '@/libs/utils';
+import { fetchProfile } from '@/services/profile.serv';
 import { IconUserFilled } from '@tabler/icons-react';
 import type { Metadata } from 'next';
 
@@ -26,6 +27,7 @@ export const metadata: Metadata = {
 };
 
 export default function Profile() {
+  const profile = fetchProfile();
   return (
     <div className="w-full min-h-dvh flex flex-col items-center">
       <div className="absolute -z-10 h-screen w-screen max-w-full overflow-hidden min-512:max-w-512">
@@ -70,99 +72,18 @@ export default function Profile() {
                   <p className="font-bold text-lg">Experience</p>
                 </div>
                 <div className="md:col-span-5 flex flex-col gap-4">
-                  <ProfileCard
-                    image="/img/sunterra.jpeg"
-                    imageClassName="bg-[#f78c22]"
-                    title="Full Stack Engineer"
-                    shortDescription="PT Energi Indonesia Berkarya (SUN Group) - Jakarta"
-                    periode="Jan 2025 - Present"
-                    description={
-                      <div className="mt-4 ml-4">
-                        <ul className="list-disc text-zinc-300 text-sm">
-                          <li>
-                            Developed and maintained web applications using
-                            Typescript, Nextjs, Node.js, Go, PHP, Postgree,
-                            MySql and MongoDB.
-                          </li>
-                          <li>
-                            Collaborated with cross-functional teams to design
-                            and implement new features based on user feedback.
-                          </li>
-                          <li>
-                            Optimized application performance and bug fixes.
-                          </li>
-                        </ul>
-                      </div>
-                    }
-                  />
-                  <ProfileCard
-                    image="/img/sunterra.jpeg"
-                    imageClassName="bg-[#f78c22]"
-                    title="Lead Software Engineer"
-                    shortDescription="PT Energi Indonesia Berkarya (SUN Group) - Jakarta"
-                    periode="May 2022 - Jan 2025"
-                    description={
-                      <div className="mt-4 ml-4">
-                        <ul className="list-disc text-zinc-300 text-sm">
-                          <li>
-                            Led a team of developers to design and implement
-                            scalable web applications using modern technologies
-                            such as React, Node.js, and Postgree.
-                          </li>
-                          <li>
-                            Architected and developed RESTful APIs to support
-                            front-end functionality and improve data retrieval
-                            efficiency.
-                          </li>
-                          <li>
-                            Mentored junior developers and conducted code
-                            reviews to ensure adherence to best practices and
-                            coding standards.
-                          </li>
-                        </ul>
-                      </div>
-                    }
-                  />
-                  <ProfileCard
-                    image="/img/tanihub.jpeg"
-                    imageClassName="bg-[#22ab97]"
-                    title="Technical Lead"
-                    shortDescription="PT Tani Group Indonesia - Jakarta"
-                    periode="Feb 2021 - May 2022"
-                    description={
-                      <div className="mt-4 ml-2">
-                        <p className="text-zinc-300 text-sm">
-                          As Technical Lead at PT Tani Group Indonesia, I led a
-                          customer‑facing squad, architected and developed
-                          services for customer‑facing products, and ensured
-                          high delivery quality through mentoring, code reviews,
-                          and technical guidance.
-                        </p>
-                      </div>
-                    }
-                  />
-                  <ProfileCard
-                    image="/img/kalbe.jpg"
-                    imageClassName="bg-white"
-                    title="Senior Frontend Engineer"
-                    shortDescription="PT Karsa Lintas Buana (Kalbe E-Health) - Tangerang"
-                    periode="Oct 2019 - Feb 2021"
-                    description={
-                      <div className="mt-4 ml-2">
-                        <p className="text-zinc-300 text-sm">
-                          As a Senior Frontend Engineer, I build high‑quality,
-                          user‑focused web applications, translating product
-                          goals into responsive, accessible, and performant
-                          interfaces. I collaborate across design and backend
-                          teams, drive front‑end architecture decisions, and
-                          improve code quality through best practices, reusable
-                          components, and thoughtful reviews. I also mentor
-                          engineers and help teams ship reliable features with a
-                          strong focus on user experience.
-                        </p>
-                      </div>
-                    }
-                  />
+                  {profile &&
+                    profile.experiences &&
+                    profile.experiences.map((exp) => (
+                      <ProfileCard
+                        key={exp.id}
+                        image={exp.image}
+                        imageClassName={exp.imageBackground}
+                        title={exp.company}
+                        shortDescription={exp.location}
+                        jobs={exp.jobs}
+                      />
+                    ))}
                 </div>
               </div>
 
@@ -170,14 +91,19 @@ export default function Profile() {
                 <div>
                   <p className="font-bold text-lg">Education</p>
                 </div>
-                <div className="md:col-span-5 ">
-                  <ProfileCard
-                    image="/img/itb.png"
-                    imageClassName="bg-white"
-                    title="Bachelor of Applied Science"
-                    shortDescription="Institut Teknologi - Bandung"
-                    periode="- From 2012 to 2014"
-                  />
+                <div className="md:col-span-5 flex flex-col gap-4">
+                  {profile &&
+                    profile.educations &&
+                    profile.educations.map((edu) => (
+                      <ProfileCard
+                        key={edu.id}
+                        image={edu.image}
+                        imageClassName={edu.imageBackground}
+                        title={edu.company}
+                        shortDescription={edu.location}
+                        jobs={edu.jobs}
+                      />
+                    ))}
                 </div>
               </div>
 
@@ -186,22 +112,11 @@ export default function Profile() {
                   <p className="font-bold text-lg">Skills</p>
                 </div>
                 <div className="md:col-span-5 flex flex-wrap gap-3">
-                  <Badge title="JavaScript" />
-                  <Badge title="TypeScript" />
-                  <Badge title="React" />
-                  <Badge title="React Native" />
-                  <Badge title="Next.js" />
-                  <Badge title="Node.js" />
-                  <Badge title="Go" />
-                  <Badge title="PHP" />
-                  <Badge title="MySQL" />
-                  <Badge title="PostgreSQL" />
-                  <Badge title="MongoDB" />
-                  <Badge title="Docker" />
-                  <Badge title="Kubernetes" />
-                  <Badge title="AWS" />
-                  <Badge title="Git" />
-                  <Badge title="Leadership" />
+                  {profile &&
+                    profile.skills &&
+                    profile.skills.map((skill) => (
+                      <Badge key={skill} title={skill} />
+                    ))}
                 </div>
               </div>
 

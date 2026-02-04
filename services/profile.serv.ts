@@ -1,0 +1,172 @@
+export function fetchProfile() {
+  return {
+    experiences: [
+      {
+        id: 'SUNTerra',
+        company: 'PT Energi Indonesia Berkarya (SUN Group)',
+        image: '/img/sunterra.jpeg',
+        imageBackground: 'bg-[#f78c22]',
+        location: 'Jakarta, Indonesia',
+        jobs: [
+          {
+            id: 'sunterra-full-stack-engineer',
+            title: 'Full Stack Engineer',
+            start: 'Jan 2025',
+            end: 'Present',
+            description: '',
+            tasks: [
+              'Developed and maintained web applications using Typescript, Nextjs, Node.js, Go, PHP, Postgree, MySql and MongoDB.',
+              'Collaborated with cross-functional teams to design and implement new features based on user feedback.',
+              'Optimized application performance and bug fixes.',
+            ],
+          },
+          {
+            id: 'sunterra-lead-software-engineer',
+            title: 'Lead Software Engineer',
+            start: 'May 2022',
+            end: 'Dec 2024',
+            description: '',
+            tasks: [
+              'Led a team of developers to design and implement scalable web applications using modern technologies such as React, Node.js, and Postgree.',
+              'Architected and developed RESTful APIs to support front-end functionality and improve data retrieval efficiency.',
+              'Mentored junior developers and conducted code reviews to ensure adherence to best practices and coding standards.',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'TaniHub',
+        company: 'PT Tani Group Indonesia',
+        image: '/img/tanihub.jpeg',
+        imageBackground: 'bg-[#22ab97]',
+        location: 'Jakarta, Indonesia',
+        jobs: [
+          {
+            id: 'tanihub-technical-lead',
+            title: 'Technical Lead',
+            start: 'Feb 2021',
+            end: 'May 2022',
+            description:
+              'As Technical Lead at PT Tani Group Indonesia, I led a customer-facing squad, architected and developed services for customer-facing products, and ensured high delivery quality through mentoring, code reviews, and technical guidance.',
+            tasks: [],
+          },
+        ],
+      },
+      {
+        id: 'Kalbe',
+        company: 'PT Karsa Lintas Buana (Kalbe E-Health)',
+        image: '/img/kalbe.jpg',
+        imageBackground: 'bg-white',
+        location: 'Tangerang Selatan, Indonesia',
+        jobs: [
+          {
+            id: 'kable-senior-frontend-engineer',
+            title: 'Senior Frontend Engineer',
+            start: 'Oct 2019',
+            end: 'Feb 2021',
+            description:
+              'As a Senior Frontend Engineer, I build high-quality, user-focused web applications, translating product goals into responsive, accessible, and performant interfaces. I collaborate across design and backend teams, drive front‑end architecture decisions, and improve code quality through best practices, reusable components, and thoughtful reviews. I also mentor engineers and help teams ship reliable features with a strong focus on user experience.',
+            tasks: [],
+          },
+        ],
+      },
+      {
+        id: 'Gramedia',
+        company: 'Gramedia Digital Nusantara',
+        image: '/img/gramedia.jpeg',
+        imageBackground: 'bg-white',
+        location: 'Tangerang Selatan, Indonesia',
+        jobs: [
+          {
+            id: 'frontend-web-developer-lead',
+            title: 'Frontend Web Developer Lead',
+            start: 'Mar 2018',
+            end: 'Sep 2019',
+            description:
+              'Led the development and maintenance of Gramedia.com’s web platform, collaborating with cross-functional teams to deliver scalable, high-quality digital experiences for millions of users.',
+            tasks: [],
+          },
+          {
+            id: 'frontend-web-developer-lead',
+            title: 'Senior Web Developer',
+            start: 'Jan 2017',
+            end: 'Mar 2018',
+            description: '',
+            tasks: [
+              'Developed and maintained core features of the Gramedia.com web platform',
+              'Implemented reusable and scalable frontend components',
+              'Optimized web performance, accessibility, and user experience',
+              'Collaborated with backend teams to integrate APIs and business logic',
+              'Participated in technical discussions, code reviews, and architectural decisions',
+              'Identified and resolved bugs and production issues',
+              'Contributed to improving development workflows and best practices',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'ruang-guru',
+        company: 'PT Ruang Raya Indonesia (ruangguru.com)',
+        image: '/img/ruangguru.jpeg',
+        imageBackground: 'bg-white',
+        location: 'Jakarta, Indonesia',
+        jobs: [
+          {
+            id: 'ruangguru-frontend-engineer',
+            title: 'Frontend Web Developer',
+            start: 'Oct 2015',
+            end: 'Dec 2016',
+            description: '',
+            tasks: [
+              'Developed and maintained frontend features for Ruangguru’s web applications',
+              'Translated UI/UX designs into responsive and interactive web interfaces',
+              'Ensured cross-browser compatibility and mobile-friendly experiences',
+              'Integrated frontend components with backend APIs',
+              'Improved performance and maintainability of existing codebases',
+              'Participated in code reviews and team discussions to improve code quality',
+              'Supported feature releases and bug fixes in production environments',
+            ],
+          },
+        ],
+      },
+    ],
+    educations: [
+      {
+        id: 'itb',
+        company: 'Bachelor of Applied Science',
+        image: '/img/itb.png',
+        imageBackground: 'bg-white',
+        location: 'Institut Teknologi - Bandung',
+        jobs: [],
+      },
+      {
+        id: 'poltekpos',
+        company: 'Associate Degree in Informatics Engineering',
+        image: '/img/poltekpos.jpeg',
+        imageBackground: 'bg-white',
+        location: 'Politeknik Pos Indonesia - Bandung',
+        jobs: [],
+      },
+    ],
+    skills: [
+      'Javascript',
+      'Typescript',
+      'PHP',
+      'GO',
+      'Python',
+      'React',
+      'React Native',
+      'NextJs',
+      'Laravel',
+      'Postgree',
+      'MySQL',
+      'MongoDB',
+      'Docker',
+      'AWS',
+      'Kubernates',
+      'Git',
+      'Leadership',
+      'Highly adaptable',
+    ],
+  };
+}
